@@ -1,14 +1,19 @@
 import { Fragment, useState } from "react";
 
-function ListGroup() {
-  let items = ["New York", "Ameriaca", "London", "Tokyo", "Paris"];
+//{items: string[] , heading : string}
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({ items, heading }: Props) {
   // Hook (stateHook):- using this we say that our component have state that change over time
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // here we are using {} to render variable dynamically
   return (
     <Fragment>
-      <h1>List</h1>
+      <h1>{heading}</h1>
 
       {items.length === 0 && <p>No items find</p>}
 
