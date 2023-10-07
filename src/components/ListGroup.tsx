@@ -1,15 +1,9 @@
-import { Fragment } from "react";
-import { MouseEvent } from "react";
+import { Fragment, useState } from "react";
 
 function ListGroup() {
   let items = ["New York", "Ameriaca", "London", "Tokyo", "Paris"];
-  let selectedIndex = 0;
-  //   items = [];
-
-  // Event handler
-  const HandleClick = (event: MouseEvent) => {
-    console.log(event);
-  };
+  // Hook (stateHook):- using this we say that our component have state that change over time
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // here we are using {} to render variable dynamically
   return (
@@ -27,7 +21,9 @@ function ListGroup() {
                 : "list-group-item"
             }
             key={item}
-            onClick={HandleClick}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
           >
             {item}
           </li>
