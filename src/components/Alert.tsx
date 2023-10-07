@@ -1,11 +1,23 @@
 import { ReactNode } from "react";
 
 interface Props {
-  childern: ReactNode; // using this we can pass html content to Alert-compnent
+  children: ReactNode; // using this children we can pass html content to Alert-compnent
+  onClose: () => void;
 }
 
-const Alert = ({ childern }: Props) => {
-  return <div className="alert alert-primary">childern</div>;
+const Alert = ({ children, onClose }: Props) => {
+  return (
+    <div className="alert alert-primary alert-dismissible">
+      {children}
+      <button
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        onClick={onClose}
+      ></button>
+    </div>
+  );
 };
 
 export default Alert;
