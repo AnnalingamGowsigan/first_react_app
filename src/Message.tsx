@@ -1,5 +1,7 @@
+let count = 0;
 function Message() {
-  return <h1>hello</h1>;
+  count++;
+  return <h1>hello {count}</h1>;
 }
 
 export default Message;
